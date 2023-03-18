@@ -105,6 +105,6 @@
 </script>
 <style scoped>
     #list{
-        margin: 100px;
+        /* margin: 100px; */
     }
 </style>

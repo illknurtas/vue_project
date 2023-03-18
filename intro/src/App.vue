@@ -31,10 +31,14 @@ export default {
     updateProduct(product){
 
     },
-    addProduct(product){
-      const newProduct = {...product}
+    async addProduct(product){
+      const response = await fetch("http://localhost:3000/products",{
+        method: "POST",
+        body: JSON.stringify(product),
+        headers: {"Content-Type": "application/json"}
+      })
+      const newProduct = await response.json()
       this.products = [...this.products, newProduct]
-      // this.products = [...this.products, product]
     },
     async getProducts(){
       const response = await fetch("http://localhost:3000/products")
