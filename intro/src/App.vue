@@ -23,7 +23,10 @@ export default {
     }
   },
   methods:{
-    deleteProduct(product){
+    async deleteProduct(product){
+      await fetch("http://localhost:3000/products/"+product.id,{
+        method:"DELETE",
+      })
       this.products = this.products.filter(
         productToFilter => productToFilter.id !== product.id
       )
