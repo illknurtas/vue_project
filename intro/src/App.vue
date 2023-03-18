@@ -1,15 +1,48 @@
 <template>
-  <HelloWorld msg="Hello World!"/>
+  <div id="app">
+    <ProductList :products="products"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ProductList from './components/ProductList.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    ProductList
+  },
+  data(){
+    return{
+      products:[
+        {
+          id:1,
+          categoryId:1,
+          productName:"Laptop",
+          quantityPerUnit:"Acer Laptop",
+          unitPrice:5000,
+          unitsInStock:2
+        },
+        {
+          id:2,
+          categoryId:1,
+          productName:" Keyboard",
+          quantityPerUnit:"HP Klavye",
+          unitPrice:300,
+          unitsInStock:13
+        },
+        {
+          id:3,
+          categoryId:2,
+          productName:"Mouse",
+          quantityPerUnit:"Logitech Mouse",
+          unitPrice:125,
+          unitsInStock:24
+        }
+      ],
+    }
   }
+
 }
 </script>
 
