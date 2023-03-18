@@ -3,7 +3,7 @@
         <p v-if="products.length == 0">
             Product list is empty!
         </p>
-        <table class="table">
+        <table v-else class="table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -12,6 +12,7 @@
                     <th>Description</th>
                     <th>Unit Price</th>
                     <th>Amount</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,16 +23,32 @@
                     <td>{{ product.quantityPerUnit }}</td>
                     <td>{{ product.unitPrice }}</td>
                     <td>{{ product.unitsInStock }}</td>
+                    <td>
+                        <button
+                         class="btn btn-sm btn-danger" 
+                         @click="handleDelete(product)">
+                            -
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 </template>
 <script>
+
     export default{
         name: "product-list",
         props:{
             products: Array
+        },
+        methods:{
+            handleDelete(product){
+                this.$emit("delete:product",product)
+            },
+            handleUpdate(){
+
+            }
         }
     }
 </script>
