@@ -1,0 +1,18 @@
+{
+    "products": [
+      { "id": 1, "categoryId":2, "productName": "Chai", "quantityPerUnit":"48 -6 oz jars","unitPrice":"24","unitsInStock":52 },
+      { "id": 2, "categoryId":1, "productName": "Chang", "quantityPerUnit":"48 -12 oz bottles","unitPrice":"21","unitsInStock":17 },
+      { "id": 3, "categoryId":3, "productName": "Chef Anton's", "quantityPerUnit":"48 -6 oz jars","unitPrice":"87","unitsInStock":52 },
+      { "id": 4, "categoryId":5, "productName": "Cumbo Mix", "quantityPerUnit":"36 boxes","unitPrice":"76","unitsInStock":44},
+      { "id": 5, "categoryId":6, "productName": "Grandma Bread", "quantityPerUnit":"12 boxes","unitPrice":"58","unitsInStock":82},
+      { "id": 6, "categoryId":4, "productName": "Cajun Mix", "quantityPerUnit":"82 - 7 jars","unitPrice":"28","unitsInStock":64}
+    ],
+    "categories": [
+      { "id": 1, "categoryName": "Beverages", "seoUrl": "beverages" },
+      { "id": 2, "categoryName": "Condiments", "seoUrl": "condiments" },
+      { "id": 3, "categoryName": "Confectios", "seoUrl": "confectios" },
+      { "id": 4, "categoryName": "Dairy Products", "seoUrl": "dairy-products" },
+      { "id": 5, "categoryName": "Grains", "seoUrl": "grains" },
+      { "id": 6, "categoryName": "Meat", "seoUrl": "meat" }
+    ]
+  }
