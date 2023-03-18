@@ -13,16 +13,48 @@
                     <th>Unit Price</th>
                     <th>Amount</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr v-for="product in products" :key="product.id">
-                    <td>{{ product.id }}</td>
-                    <td>{{ product.productName }}</td>
-                    <td>{{ product.categoryId }}</td>
-                    <td>{{ product.quantityPerUnit }}</td>
-                    <td>{{ product.unitPrice }}</td>
-                    <td>{{ product.unitsInStock }}</td>
+                    <td v-if="updateId===product.id">
+                        <input type="text" v-model="product.id"
+                        class="form-control" id="id">
+                    </td>
+                    <td v-else>{{ product.id }}</td>
+                    <td v-if="updateId===product.id">
+                        <input type="text" v-model="product.productName"
+                        class="form-control" id="productName">
+                    </td>
+                    <td v-else>{{ product.productName }}</td>
+                    <td v-if="updateId===product.id">
+                        <input type="text" v-model="product.categoryId"
+                        class="form-control" id="categoryId">
+                    </td>
+                    <td v-else>{{ product.categoryId }}</td>
+                    <td v-if="updateId===product.id">
+                        <input type="text" v-model="product.quantityPerUnit"
+                        class="form-control" id="quantityPerUnit">
+                    </td>
+                    <td v-else>{{ product.quantityPerUnit }}</td>
+                    <td v-if="updateId===product.id">
+                        <input type="text" v-model="product.unitPrice"
+                        class="form-control" id="unitPrice">
+                    </td>
+                    <td v-else>{{ product.unitPrice }}</td>
+                    <td v-if="updateId===product.id">
+                        <input type="text" v-model="product.unitsInStock"
+                        class="form-control" id="unitsInStock">
+                    </td>
+                    <td v-else>{{ product.unitsInStock }}</td>
+                    <td>
+                        <button
+                         class="btn btn-sm btn-success" 
+                         @click="handleUpdate(product)">
+                            Update
+                        </button>
+                    </td>
                     <td>
                         <button
                          class="btn btn-sm btn-danger" 
@@ -42,12 +74,17 @@
         props:{
             products: Array
         },
+        data(){
+            return{
+                updateId: null
+            }
+        },
         methods:{
             handleDelete(product){
                 this.$emit("delete:product",product)
             },
-            handleUpdate(){
-
+            handleUpdate(product){
+                this.updateId = product.id
             }
         }
     }

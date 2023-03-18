@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <ProductList :products="products"
-    @delete:product="deleteProduct"/>
+    @delete:product="deleteProduct"
+    @update:product = "updateProduct"/>
   </div>
 </template>
 
@@ -48,6 +49,9 @@ export default {
       this.products = this.products.filter(
         productToFilter => productToFilter.id !== product.id
       )
+    },
+    updateProduct(product){
+
     }
   }
 
