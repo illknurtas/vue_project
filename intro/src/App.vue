@@ -31,8 +31,16 @@ export default {
         productToFilter => productToFilter.id !== product.id
       )
     },
-    updateProduct(product){
-
+    async updateProduct(product){
+        const response = await fetch("http://localhost:3000/products/"+product.id,{
+        method: "PUT",
+        body: JSON.stringify(product),
+        headers: {"Content-Type": "application/json"}
+      })
+      const updateProduct = await response.json()
+      this.products = this.products.map(
+        product=>product.id===updateProduct.id ? updateProduct: product
+      )
     },
     async addProduct(product){
       const response = await fetch("http://localhost:3000/products",{

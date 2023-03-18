@@ -52,9 +52,9 @@
       "id": 8,
       "categoryId": "3",
       "productName": "Tea",
-      "quantityPerUnit": "Black Tea",
+      "quantityPerUnit": "Black Tea -7 ",
       "unitPrice": "65",
-      "unitInStock": "47"
+      "unitsInStock": "48"
     }
   ],
   "categories": [
