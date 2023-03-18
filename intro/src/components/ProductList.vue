@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="list">
         <p v-if="products.length == 0">
             Product list is empty!
         </p>
@@ -48,19 +48,29 @@
                         class="form-control" id="unitsInStock">
                     </td>
                     <td v-else>{{ product.unitsInStock }}</td>
-                    <td>
-                        <button
-                         class="btn btn-sm btn-success" 
-                         @click="handleUpdate(product)">
-                            Update
-                        </button>
+                    <td v-if="updateId!==product.id">
+                            <button
+                            class="btn btn-sm btn-success mx-2" 
+                            @click="handleUpdate(product)">
+                                Update
+                            </button>
+                            <button
+                            class="btn btn-sm btn-danger mx-2 " 
+                            @click="handleDelete(product)">
+                                -
+                            </button>
                     </td>
-                    <td>
-                        <button
-                         class="btn btn-sm btn-danger" 
-                         @click="handleDelete(product)">
-                            -
-                        </button>
+                    <td v-else>
+                            <button
+                            class="btn btn-sm btn-success mx-2" 
+                            @click="handleSave(product)">
+                                Save
+                            </button>
+                            <button
+                            class="btn btn-sm btn-danger mx-2" 
+                            @click="updateId=null">
+                                Remove
+                            </button>
                     </td>
                 </tr>
             </tbody>
@@ -85,10 +95,16 @@
             },
             handleUpdate(product){
                 this.updateId = product.id
+            },
+            handleSave(product){
+                this.$emit("update:product",product),
+                this.updateId = null
             }
         }
     }
 </script>
 <style scoped>
-
+    #list{
+        margin: 100px;
+    }
 </style>

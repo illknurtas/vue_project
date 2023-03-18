@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <ProductAdd @add:product="addProduct"/>
     <ProductList :products="products"
     @delete:product="deleteProduct"
     @update:product = "updateProduct"/>
@@ -7,13 +8,15 @@
 </template>
 
 <script>
+import ProductAdd from './components/ProductAdd.vue';
 import ProductList from './components/ProductList.vue'
 
 export default {
   name: 'App',
   components: {
-    ProductList
-  },
+    ProductList,
+    ProductAdd
+},
   data(){
     return{
       products:[
@@ -52,6 +55,11 @@ export default {
     },
     updateProduct(product){
 
+    },
+    addProduct(product){
+      const newProduct = {...product}
+      this.products = [...this.products, newProduct]
+      // this.products = [...this.products, product]
     }
   }
 
@@ -63,7 +71,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
 }
