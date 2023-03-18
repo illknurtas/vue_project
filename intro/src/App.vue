@@ -19,32 +19,7 @@ export default {
 },
   data(){
     return{
-      products:[
-        {
-          id:1,
-          categoryId:1,
-          productName:"Laptop",
-          quantityPerUnit:"Acer Laptop",
-          unitPrice:5000,
-          unitsInStock:2
-        },
-        {
-          id:2,
-          categoryId:1,
-          productName:" Keyboard",
-          quantityPerUnit:"HP Klavye",
-          unitPrice:300,
-          unitsInStock:13
-        },
-        {
-          id:3,
-          categoryId:2,
-          productName:"Mouse",
-          quantityPerUnit:"Logitech Mouse",
-          unitPrice:125,
-          unitsInStock:24
-        }
-      ],
+      products:[]
     }
   },
   methods:{
@@ -60,7 +35,15 @@ export default {
       const newProduct = {...product}
       this.products = [...this.products, newProduct]
       // this.products = [...this.products, product]
+    },
+    async getProducts(){
+      const response = await fetch("http://localhost:3000/products")
+      const data = await response.json()
+      this.products = data;
     }
+  },
+  mounted(){
+    this.getProducts();
   }
 
 }
